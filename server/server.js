@@ -9,7 +9,13 @@ const postRoutes = require('./routes/posts');
 
 //app middleware
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors(
+  {
+    origin:["https://mern-crud-api-fawn.vercel.app/"],
+    methods:["GET","POST","PUT","DELETE"],
+    credentials:true
+  }
+));
 
 app.use(postRoutes);
 
